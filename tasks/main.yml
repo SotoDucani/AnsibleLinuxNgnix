@@ -22,3 +22,6 @@
     name: nginx
     state: started
   become: yes
+- name: Pause for info
+  wait_for:
+    timeout: 10
