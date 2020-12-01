@@ -4,12 +4,14 @@
     name: nginx
     state: latest
   become: yes
+
 - name: copy index.html
   copy:
     src: ../SourceFiles/linux_index.html
     dest: /usr/share/nginx/html/index.html
     mode: '644'
   become: yes
+
 - name: set nginx to own /usr/share/nginx
   file:
     path: /usr/share/nginx
@@ -17,11 +19,13 @@
     owner: nginx
     group: nginx
   become: yes
+
 - name: start nginx service
   service:
     name: nginx
     state: started
   become: yes
+  
 - name: Pause for info
   wait_for:
     timeout: 10
