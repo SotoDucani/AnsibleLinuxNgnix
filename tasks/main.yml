@@ -7,7 +7,7 @@
 
 - name: copy index.html
   copy:
-    src: ../SourceFiles/linux_index.html
+    src: linux_index.html
     dest: /usr/share/nginx/html/index.html
     mode: '644'
   become: yes
@@ -25,7 +25,7 @@
     name: nginx
     state: started
   become: yes
-  
+
 - name: Pause for info
   wait_for:
     timeout: 10
